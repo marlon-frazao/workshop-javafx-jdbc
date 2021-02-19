@@ -2,6 +2,7 @@ package model.services;
 
 import java.util.List;
 
+import db.DbIntegrityException;
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
@@ -20,5 +21,9 @@ public class DepartmentService {
 		} else {
 			dao.update(obj);
 		}
+	}
+	
+	public void remove(Department obj) {
+		dao.deleteById(obj.getId());
 	}
 }
